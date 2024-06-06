@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Detalle de Estudiante</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            padding: 20px;
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        h3 {
+            color: #555;
+            margin-bottom: 10px;
+        }
+        .detail-item {
+            margin-bottom: 20px;
+        }
+        .logo {
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <img class="logo" src="https://upload.wikimedia.org/wikipedia/commons/a/aa/Logo_DuocUC.svg" alt="Logo Duoc UC">
+        <h1>Detalle de Estudiante</h1>
+        <div class="detail-item">
+            <h3>Nombre: <span>{{ object.nombre }}</span></h3>
+        </div>
+        <div class="detail-item">
+            <h3>Rut: <span>{{ object.rut }}</span></h3>
+        </div>
+        <div class="detail-item">
+            <h3>Dirección: <span>{{ object.direccion }}</span></h3>
+        </div>
+        <div class="detail-item">
+            <h3>Carrera: <span>{{ object.carrera }}</span></h3>
+        </div>
+    </div>
+</body>
+</html>

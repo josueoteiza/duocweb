@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Lista de Estudiantes</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 20px;
+        }
+        h1 {
+            color: #333;
+            text-align: center;
+        }
+        a {
+            color: #007BFF;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .new-student-link {
+            display: inline-block;
+            margin-bottom: 20px;
+            font-size: 18px;
+        }
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            background-color: #fff;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+        }
+        th, td {
+            padding: 10px;
+            text-align: left;
+            border-bottom: 1px solid #ddd;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+        .empty-row {
+            text-align: center;
+            font-weight: bold;
+            color: red;
+        }
+        .actions a {
+            margin-right: 10px;
+        }
+        .logo {
+            display: block;
+            margin: 0 auto 20px;
+            max-width: 150px;
+        }
+        .header-container {
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div class="header-container">
+        <img src="https://upload.wikimedia.org/wikipedia/commons/a/aa/Logo_DuocUC.svg" alt="Logo DUOC UC" class="logo">
+        <h1>Lista de Estudiantes</h1>
+    </div>
+    <a href="{% url 'estudiante_nuevo' %}" class="new-student-link">Creación de nuevo Estudiante</a>
+    <table>
+        <tr>
+            <th>Nombre</th>
+            <th>Rut</th>
+            <th>Acción</th>
+        </tr>
+        {% for estudiante in object_list %}
+        <tr>
+            <td>{{ estudiante.nombre }}</td>
+            <td>{{ estudiante.rut }}</td>
+            <td class="actions">
+                <a href="{% url 'estudiante_detalle' estudiante.id %}">Detalle</a>
+                <a href="{% url 'estudiante_editar' estudiante.id %}">Editar</a>
+                <a href="{% url 'estudiante_borrar' estudiante.id %}">Borrar</a>
+            </td>
+        </tr>
+        {% empty %}
+        <tr><td colspan="3" class="empty-row">¡Los datos están vacíos! Por favor, agregue datos primero.</td></tr>
+        {% endfor %}
+    </table>
+</body>
+</html>
